@@ -2,14 +2,17 @@ package com.haji.suada.tmdbapp.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.haji.suada.tmdbapp.R;
 import com.haji.suada.tmdbapp.model.Movie;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -21,11 +24,13 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
     private List<Movie> movies;
     private int rowLayout;
     private Context context;
+    private int width;
 
     public MoviesAdapter(List<Movie> movies, int rowLayout, Context context) {
         this.movies = movies;
         this.rowLayout = rowLayout;
         this.context = context;
+       // this.width = width;
     }
 
     public static class MovieViewHolder extends RecyclerView.ViewHolder{
@@ -34,6 +39,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         TextView data;
         TextView movieDescription;
         TextView rating;
+        ImageView thumbnail;
 
         public MovieViewHolder(View itemView) {
             super(itemView);
@@ -42,6 +48,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
             data = (TextView) itemView.findViewById(R.id.subtitle);
             movieDescription = (TextView) itemView.findViewById(R.id.movie_description);
             rating = (TextView) itemView.findViewById(R.id.rating);
+            thumbnail = (ImageView) itemView.findViewById(R.id.thumbnail);
         }
     }
 
@@ -58,6 +65,13 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         holder.data.setText(movies.get(position).getReleaseDate());
         holder.movieDescription.setText(movies.get(position).getOverview());
         holder.rating.setText(movies.get(position).getVoteAverage().toString());
+        //Glide.with(context).load(movies.get(position).getPosterPath()).into(holder.thumbnail);
+        //Picasso.with(context).load("http://image.tmdb.org/t/p/w185/" + movies.get(position).getPosterPath()).resize(width, (int)(width*1.5)).into(holder.thumbnail);
+        Picasso.with(context).load("http://image.tmdb.org/t/p/w185/" + movies.get(position).getPosterPath()).into(holder.thumbnail);
+        Log.i("Suada", movies.get(position).getPosterPath() + "   suada");
+        Log.i("Suada", movies.get(position).getTitle() + "   suada");
+        Log.i("Suada", movies.get(position).getAdult() + "   suada");
+        Log.i("Suada", movies.get(position).getOverview() + "   suada");
     }
 
     @Override

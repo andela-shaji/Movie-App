@@ -9,7 +9,7 @@ import java.util.List;
  * Created by suadahaji.
  */
 public class Movie {
-    @SerializedName("poster_name")
+    @SerializedName("poster_path")
     private String posterPath;
     @SerializedName("adult")
     private Boolean adult;
