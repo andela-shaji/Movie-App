@@ -2,7 +2,6 @@ package com.haji.suada.tmdbapp.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,13 +64,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         holder.data.setText(movies.get(position).getReleaseDate());
         holder.movieDescription.setText(movies.get(position).getOverview());
         holder.rating.setText(movies.get(position).getVoteAverage().toString());
-        //Glide.with(context).load(movies.get(position).getPosterPath()).into(holder.thumbnail);
-        //Picasso.with(context).load("http://image.tmdb.org/t/p/w185/" + movies.get(position).getPosterPath()).resize(width, (int)(width*1.5)).into(holder.thumbnail);
-        Picasso.with(context).load("http://image.tmdb.org/t/p/w185/" + movies.get(position).getPosterPath()).into(holder.thumbnail);
-        Log.i("Suada", movies.get(position).getPosterPath() + "   suada");
-        Log.i("Suada", movies.get(position).getTitle() + "   suada");
-        Log.i("Suada", movies.get(position).getAdult() + "   suada");
-        Log.i("Suada", movies.get(position).getOverview() + "   suada");
+        Picasso.with(context).load("http://image.tmdb.org/t/p/w185/" + movies.get(position).getBackdropPath()).into(holder.thumbnail);
     }
 
     @Override
