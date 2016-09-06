@@ -11,6 +11,7 @@ import com.haji.suada.tmdbapp.fragments.TopMoviesFragment;
  * Created by suadahaji.
  */
 public class TopMoviesFragmentAdapter extends FragmentPagerAdapter {
+
     final int PAGE_COUNT = 4;
     private String tabTitles[] = new String[] { "TOP MOVIES", "UPCOMING", "NOW PLAYING", "POPULAR" };
     private Context context;
