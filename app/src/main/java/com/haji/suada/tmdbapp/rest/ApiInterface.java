@@ -21,6 +21,12 @@ public interface ApiInterface {
     @GET("movie/now_playing")
     Call<MovieResponse> getNowPlayingMovies(@Query("api_key") String apiKey);
 
+    @GET("movie/upcoming")
+    Call<MovieResponse> getUpcominggMovies(@Query("api_key") String apiKey);
+
+    @GET("movie/popular")
+    Call<MovieResponse> getPopularMovies(@Query("api_key") String apiKey);
+
 
     /**
      * @Path – variable substitution for the API endpoint.
