@@ -34,9 +34,12 @@ public class MainActivity extends AppCompatActivity {
 
         initCollapsingToolbar();
 
+       /* ImageView thumbnail = (ImageView) findViewById(R.id.backdrop);
+        Glide.with(this).load("http://image.tmdb.org/t/p/w185/956xMjH4sPoqimqoLOP6AI19mjm.jpg").into(thumbnail);
+*/
+
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        //viewPager.setAdapter(new TopMoviesFragmentAdapter(getSupportFragmentManager(), MainActivity.this));
         setupViewPager(viewPager);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.slidingTabs);
